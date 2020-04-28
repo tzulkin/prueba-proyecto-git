@@ -4,10 +4,14 @@ metadata:
   name: cm-hse-openshift
   namespace: netdot
 data:
-  application.properties: |-
-{
-  "ResolvedPlaceholderFromEnvVariables": "${PATH?NotFound}",
-  "UnresolvedPlaceholder": "${SomKeyNotFound?NotFound}",
-  "ResolvedPlaceholderFromJson": "${Logging:LogLevel:System?${Loggin:LogLevel:Default}}",
-  "ConfiguracionDeJson": "Valor por defecto"
-}
+  OpenShiftConfig.yml: |-
+    ResolvedPlaceholderFromEnvVariables: "${PATH?NotFound}"
+    UnresolvedPlaceholder: "${SomKeyNotFound?NotFound}"
+    ResolvedPlaceholderFromJson: "${Logging:LogLevel:System?${Loggin:LogLevel:Default}}"
+    ConfiguracionDeJson: Valor por defecto
+  tres.yml: |-
+    Logging:
+      LogLevel:
+        Default: Information
+        Microsoft: Warning
+        app: Trace
